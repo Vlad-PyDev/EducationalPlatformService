@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Flashcards - Обучение</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="flash-container">
+    <h1>Флеш-карточки</h1>
+    <div class="flashcards">
+      {% for card in flashcards %}
+      <div class="flashcard" onclick="flipCard(this)">
+        <div class="front">{{ card.term }}</div>
+        <div class="back">{{ card.definition }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="{{ url_for('index') }}" class="btn">На старт</a>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
